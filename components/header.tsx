@@ -96,12 +96,16 @@ export function Header() {
         </button>
 
         {/* Logo */}
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
+        <Link href="/" className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-500 ${isScrolled ? "mt-0" : "mt-4"}`}>
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className={`h-14 w-[220px] lg:h-16 lg:w-[260px] ${isScrolled ? "text-foreground" : "text-white"}`}
+            className={`transition-all duration-500 ${
+              isScrolled 
+                ? "h-10 w-[150px] lg:h-12 lg:w-[180px] text-foreground" 
+                : "h-14 w-[220px] lg:h-16 lg:w-[260px] text-white"
+            }`}
           >
             <Logo className="w-full h-full" />
           </motion.div>

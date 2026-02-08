@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Cormorant_Garamond, Inter, Pinyon_Script } from 'next/font/google'
 
 import './globals.css'
 
@@ -13,6 +13,12 @@ const _cormorant = Cormorant_Garamond({
 const _inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+})
+
+const _pinyon = Pinyon_Script({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-pinyon',
 })
 
 export const metadata: Metadata = {
@@ -35,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${_inter.variable} ${_cormorant.variable} ${_pinyon.variable} font-sans antialiased`}>{children}</body>
     </html>
   )
 }
